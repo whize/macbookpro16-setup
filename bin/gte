@@ -1,0 +1,20 @@
+#!/usr/bin/env ruby
+# -*- coding: utf-8 -*-
+
+require 'uri'
+require 'open-uri'
+require 'nokogiri'
+
+param = URI.escape(ARGV[0])
+userAgent = 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_12_2) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/55.0.2883.95 Safari/537.36'
+url = "https://translate.google.co.jp/?hl=ja#en/ja/" + param
+p url
+charset = nil
+html = open(url, 'User-Agent' => userAgent) do |f|
+    charset = f.charset
+    f.read
+end
+p html
+#doc = Nokogiri::HTML.parse(html, nil, charset)
+
+#p doc.xpath('//*[@id="result_box"]/span')

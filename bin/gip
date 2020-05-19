@@ -1,0 +1,8 @@
+#!/bin/bash
+
+get_global_ip() {
+    curl inet-ip.info/ip 2>/dev/null
+}
+
+get_global_ip
+

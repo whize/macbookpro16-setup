@@ -1,0 +1,36 @@
+{
+    "segments": {
+        "right": [
+            {
+                "function": "powerline.segments.common.net.external_ip"
+            },
+            {
+                "function": "powerline.segments.common.net.internal_ip",
+                "name": "int_ip",
+                "args": {
+                    "interface": "en0",
+                    "ipv": 4
+                }
+            },
+            {
+            "function": "powerline.segments.common.time.date",
+                "name": "date",
+                "args": {
+                    "format": "%Y-%m-%d [%a]"
+                }
+            },
+            {
+                "function": "powerline.segments.common.time.date",
+                "name": "time",
+                "args": {
+                    "format": "%H:%M",
+                    "istime": true
+                }
+            },
+            {
+                "function": "powerline.segments.common.bat.battery",
+                "name": "battery"
+            }
+        ]
+    }
+}
