@@ -5,12 +5,7 @@
                 "function": "powerline.segments.common.net.external_ip"
             },
             {
-                "function": "powerline.segments.common.net.internal_ip",
-                "name": "int_ip",
-                "args": {
-                    "interface": "en0",
-                    "ipv": 4
-                }
+                "function": "powerline.segments.common.net.internal_ip"
             },
             {
             "function": "powerline.segments.common.time.date",
