@@ -18,35 +18,6 @@ if which rustup > /dev/null; then
     export RUST_SRC_PATH="~/.rustup/toolchains/stable-x86_64-apple-darwin/lib/rustlib/src"
 fi
 
-setopt hist_ignore_all_dups
-
-function peco_select_history() {
-    local tac
-    if which tac > /dev/null; then
-        tac="tac"
-    else
-        tac="tail -r"
-    fi
-    BUFFER=$(fc -l -n 1 | eval $tac | peco --query "$LBUFFER")
-    CURSOR=$#BUFFER
-
-    zle clear-screen
-}
-
-zle -N peco_select_history
-bindkey '^r' peco_select_history
-
-function peco-src () {
-    local selected_dir=$(ghq list -p | peco --query "$LBUFFER")
-    if [ -n "$selected_dir" ]; then
-        BUFFER="cd ${selected_dir}"
-        zle accept-line
-    fi
-    zle clear-screen
-}
-zle -N peco-src
-bindkey '^g' peco-src
-
 vterm_printf(){
     if [ hn "$TMUX" ] && ([ "${TERM%%-*}" = "tmux" ] || [ "${TERM%%-*}" = "screen" ] ); then
         # Tell tmux o pass the escape sequence throgh
@@ -59,6 +30,47 @@ vterm_printf(){
     fi
 }
 
+#------------
+# settings for cdr
+#------------
+setopt AUTO_PUSHD
+setopt pushd_ignore_dups
+DIRSTACKSIZE=100
+
+# activate cdr, add-zsh-hook 
+autoload -Uz chpwd_recent_dirs cdr add-zsh-hook
+add-zsh-hook chpwd chpwd_recent_dirs
+
+#------------
+# settings for history
+#------------
+HISTFILE=~/.zsh_history
+HISTSIZE=10000
+SAVEHIST=10000
+setopt extended_history # save command history with execution time
+setopt share_history # share history to other windows
+setopt hist_ignore_all_dups
+setopt hist_ignore_space
+setopt hist_verify
+setopt hist_reduce_blanks
+setopt hist_save_no_dups
+setopt hist_expire_dups_first
+setopt hist_expand
+setopt inc_append_history
+
+# emacs key bind
+bindkey -e
+# auto cd
+setopt auto_cd
+
+eval "$(anyenv init -)"
+
 powerline-daemon -q
 
+export PATH="${GOPATH}/bin:$PATH"
+
 eval "$(starship init zsh)"
+
+source ~/.config/zsh/zplug.zsh
+
+
