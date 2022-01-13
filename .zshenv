@@ -8,3 +8,9 @@ export PKG_CONFIG_PATH=/usr/local/opt/krb5/lib/pkgconfig:/usr/local/opt/openssl@
 export CPPFLAGS=-I/usr/local/opt/openjdk/include
 export CFLAGS="-Wno-error=implicit-function-declaration -DU_DEFINE_FALSE_AND_TRUE=1"
 export CXXFLAGS="-Wno-error=implicit-function-declaration -DU_DEFINE_FALSE_AND_TRUE=1"
+
+eval "$(anyenv init -)"
+powerline-daemon -q
+export PATH="${GOPATH}/bin:$PATH"
+source ~/.config/zsh/zplug.zsh
+

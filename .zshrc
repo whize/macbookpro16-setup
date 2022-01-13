@@ -63,14 +63,5 @@ bindkey -e
 # auto cd
 setopt auto_cd
 
-eval "$(anyenv init -)"
-
-powerline-daemon -q
-
-export PATH="${GOPATH}/bin:$PATH"
-
 eval "$(starship init zsh)"
-
-source ~/.config/zsh/zplug.zsh
-
 
