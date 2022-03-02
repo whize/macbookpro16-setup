@@ -1,6 +1,5 @@
 export LC_ALL=ja_JP.UTF-8
 export LANG=ja_JP.UTF-8
-export PATH="$HOME/.anyenv/bin:$HOME/bin:$HOME/.cargo/bin:$HOME/.cargo/bin/rustup:/usr/local/opt/mysql-client/bin:/usr/local/opt/bison/bin:/usr/local/bin:/usr/local/sbin:/usr/local/opt/avr-gcc@8/bin:/usr/local/opt/arm-gcc-bin@8/bin:/usr/local/opt/openjdk/bin:/usr/local/opt/curl/bin:/usr/bin:/bin:/usr/sbin:/sbin:/Library/Apple/usr/bin"
 export NOTIFY_COLOR="#ed5c5c"
 export GHQ_SELCTOR=peco
 export CPATH=/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include
@@ -9,8 +8,5 @@ export CPPFLAGS=-I/usr/local/opt/openjdk/include
 export CFLAGS="-Wno-error=implicit-function-declaration -DU_DEFINE_FALSE_AND_TRUE=1"
 export CXXFLAGS="-Wno-error=implicit-function-declaration -DU_DEFINE_FALSE_AND_TRUE=1"
 
-eval "$(anyenv init -)"
-powerline-daemon -q
-export PATH="${GOPATH}/bin:$PATH"
 source ~/.config/zsh/zplug.zsh
 
