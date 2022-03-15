@@ -8,5 +8,10 @@ export CPPFLAGS=-I/usr/local/opt/openjdk/include
 export CFLAGS="-Wno-error=implicit-function-declaration -DU_DEFINE_FALSE_AND_TRUE=1"
 export CXXFLAGS="-Wno-error=implicit-function-declaration -DU_DEFINE_FALSE_AND_TRUE=1"
 
+export PATH=$HOME/.anyenv/bin:$HOME/bin:$PATH
+
+eval "$(anyenv init -)"
+export PATH="${GOPATH}/bin:$PATH"
+
 source ~/.config/zsh/zplug.zsh
 
