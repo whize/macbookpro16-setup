@@ -13,5 +13,5 @@ export PATH=$HOME/.anyenv/bin:$HOME/bin:$PATH
 eval "$(anyenv init -)"
 export PATH="${GOPATH}/bin:$PATH"
 
-source ~/.config/zsh/zplug.zsh
+#source ~/.config/zsh/zplug.zsh
 

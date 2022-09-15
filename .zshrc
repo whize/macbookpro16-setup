@@ -1,14 +1,19 @@
 
+source <(curl -sL git.io/zi-loader); zzinit
+source ~/.config/zi/zinit.zsh
 
 alias tn="tmux new -s"
 alias tl="tmux ls"
 alias ta="tmux a -t"
 alias ls="exa"
-alias ll="ls -l"
+alias ll="ls -la"
 alias lla="ls -la"
 alias vim="nvim"
 alias view="vim -R"
 alias diff="colordiff -u"
+alias dcud="docker-compose up -d"
+alias dcstop="docker-compose stop"
+alias dps="docker ps"
 
 if which ansible-vault > /dev/null; then
     alias mysec="ansible-vault edit ~/Documents/secret.md"
@@ -56,7 +61,7 @@ setopt hist_reduce_blanks
 setopt hist_save_no_dups
 setopt hist_expire_dups_first
 setopt hist_expand
-setopt inc_append_history
+#zsetopt inc_append_history
 
 # emacs key bind
 bindkey -e
@@ -67,3 +72,4 @@ export PATH="$HOME/.cargo/bin:$HOME/.cargo/bin/rustup:/usr/local/opt/mysql-clien
 
 eval "$(starship init zsh)"
 
+export GOPRIVATE="github.com/yomiuri-pladev/"
