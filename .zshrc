@@ -1,6 +1,6 @@
 
-source <(curl -sL git.io/zi-loader); zzinit
-source ~/.config/zi/zinit.zsh
+#source <(curl -sL git.io/zi-loader); zzinit
+
 
 alias tn="tmux new -s"
 alias tl="tmux ls"
@@ -70,6 +70,20 @@ setopt auto_cd
 
 export PATH="$HOME/.cargo/bin:$HOME/.cargo/bin/rustup:/usr/local/opt/mysql-client/bin:/usr/local/opt/bison/bin:/usr/local/bin:/usr/local/sbin:/usr/local/opt/avr-gcc@8/bin:/usr/local/opt/arm-gcc-bin@8/bin:/usr/local/opt/openjdk/bin:/usr/local/opt/curl/bin:/usr/bin:/bin:/usr/sbin:/sbin:/Library/Apple/usr/bin:$PATH"
 
+export STARTSHIP_CONFIG=~/.config/startship.toml
 eval "$(starship init zsh)"
 
 export GOPRIVATE="github.com/yomiuri-pladev/"
+
+# Load a few important annexes, without Turbo
+# (this is currently required for annexes)
+#zinit light-mode for \
+#    zdharma-continuum/zinit-annex-as-monitor \
+#    zdharma-continuum/zinit-annex-bin-gem-node \
+#    zdharma-continuum/zinit-annex-patch-dl \
+#    zdharma-continuum/zinit-annex-rust
+
+### End of Zinit's installer chunk
+ZINIT_HOME="${XDG_DATA_HOME:-${HOME}/.local/share}/zinit/zinit.git"
+source "${ZINIT_HOME}/zinit.zsh"
+source ~/.config/zi/zinit.zsh
